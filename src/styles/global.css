@@ -214,6 +214,49 @@ main {
   border: 0;
 }
 
+/* ---------- Diagrams (inline SVG in articles) ---------- */
+.diagram {
+  margin: 2rem 0;
+  padding: 1.1rem 1rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.diagram .scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+  font-family: var(--font);
+}
+.diagram figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.diagram figcaption b {
+  color: var(--text);
+}
+.diagram .box { fill: var(--bg); stroke: var(--border); stroke-width: 1.2; }
+.diagram .box.hi { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+.diagram .box.dim { fill: none; stroke-dasharray: 4 3; }
+.diagram .t { fill: var(--text); font-size: 14px; font-weight: 650; }
+.diagram .s { fill: var(--muted); font-size: 12px; }
+.diagram .m { font-family: var(--mono); }
+.diagram .acc { fill: var(--accent); font-weight: 650; }
+.diagram .fa { fill: var(--faint); }
+.diagram .lbl { fill: var(--muted); font-size: 11.5px; font-weight: 500; }
+.diagram .ln { stroke: var(--faint); stroke-width: 1.5; fill: none; }
+.diagram .ln.hi { stroke: var(--accent); }
+.diagram .ln.dash { stroke-dasharray: 5 4; }
+.diagram .ah { fill: var(--faint); }
+.diagram .ah.hi { fill: var(--accent); }
+
 /* Shiki dual themes: use dark colours when the OS is in dark mode */
 @media (prefers-color-scheme: dark) {
   .astro-code,

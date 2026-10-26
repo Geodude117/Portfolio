@@ -1,12 +1,13 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { url } from '../site';
 
 interface Props {
   project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
-const { title, summary, tech, status, repo, link } = project.data;
+const { title, summary, tech, status, repo, link, article } = project.data;
 ---
 
 <article class="card">
@@ -25,8 +26,9 @@ const { title, summary, tech, status, repo, link } = project.data;
     )
   }
   {
-    (repo || link) && (
+    (repo || link || article) && (
       <div class="actions">
+        {article && <a href={url(`articles/${article}/`)}>Read the write-up →</a>}
         {link && (
           <a href={link} target="_blank" rel="noopener">
             Visit ↗

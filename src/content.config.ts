@@ -24,6 +24,7 @@ const projects = defineCollection({
     status: z.enum(['Live', 'In progress', 'Archived']).default('In progress'),
     repo: z.string().url().optional(),
     link: z.string().url().optional(),
+    article: z.string().optional(), // slug of a write-up in src/content/articles
     featured: z.boolean().default(false),
     order: z.number().default(100),
   }),
