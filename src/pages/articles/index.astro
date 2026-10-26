@@ -6,10 +6,10 @@ import { getArticles } from '../../lib/content';
 const articles = await getArticles();
 ---
 
-<Base title="Articles" description="Write-ups on the projects I build and what I learn along the way.">
+<Base title="Articles" description="Technical write-ups on the projects, produced with Claude (AI).">
   <p class="eyebrow">Articles</p>
   <h1>Writing</h1>
-  <p class="muted lead">Write-ups on the projects I build, the decisions behind them and what I learned.</p>
+  <p class="muted lead">Technical write-ups on the projects and the decisions behind them. Articles marked AI used were produced with Claude, an AI assistant.</p>
   <ArticleList articles={articles} />
 </Base>
 

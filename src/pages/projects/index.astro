@@ -6,10 +6,10 @@ import { getProjects } from '../../lib/content';
 const projects = await getProjects();
 ---
 
-<Base title="Projects" description="Things I've built — .NET, web and SwiftUI projects.">
+<Base title="Projects" description=".NET and web projects, each with a technical write-up and a note on how AI was used.">
   <p class="eyebrow">Projects</p>
-  <h1>Things I've built</h1>
-  <p class="muted lead">Projects I've built and shipped, each with a technical write-up.</p>
+  <h1>Projects</h1>
+  <p class="muted lead">Each project has a technical write-up, and each card says how Claude (AI) was used.</p>
 
   <div class="stack">
     {projects.map((p) => <ProjectCard project={p} />)}
