@@ -6,5 +6,5 @@ status: Archived
 repo: https://github.com/Geodude117/Customer.API
 article: customer-api-layered-dotnet
 featured: true
-order: 2
+order: 3
 ---
