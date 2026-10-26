@@ -11,8 +11,20 @@ const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 4
 
 <Base>
   <section class="hero">
-    <p class="eyebrow">{SITE.role}</p>
-    <h1>Hi, I'm {SITE.name}.</h1>
+    <div class="hero-top">
+      <img
+        class="avatar"
+        src={url('images/geovan.jpg')}
+        alt={`Photo of ${SITE.name}`}
+        width="480"
+        height="480"
+        fetchpriority="high"
+      />
+      <div>
+        <p class="eyebrow">{SITE.role}</p>
+        <h1>Hi, I'm {SITE.name}.</h1>
+      </div>
+    </div>
     <p class="intro">{SITE.intro}</p>
     {SITE.about.map((p) => <p class="about">{p}</p>)}
     <div class="cta">
@@ -39,6 +51,40 @@ const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 4
 <style>
   .hero {
     padding: 2.5rem 0 1rem;
+  }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .hero-top h1 {
+    margin-bottom: 0;
+  }
+  .hero-top + .intro {
+    margin-top: 1.25rem;
+  }
+  .avatar {
+    flex: none;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--surface);
+    box-shadow:
+      0 0 0 2px var(--accent),
+      0 8px 24px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+  @media (max-width: 560px) {
+    .hero-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .avatar {
+      width: 6rem;
+      height: 6rem;
+    }
   }
   .intro {
     font-size: 1.15rem;
