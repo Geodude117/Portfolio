@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../site';
+
+const repo = 'https://github.com/Geodude117/Wee-Alarm';
+---
+
+<Base
+  title="Wee Alarm"
+  description="Wee Alarm is a simple iPhone alarm that reminds you to let your dog out for a wee, even when you're gaming or working."
+>
+  <div class="app-head">
+    <img src={url('images/wee-alarm/icon.png')} alt="Wee Alarm app icon" width="96" height="96" />
+    <div>
+      <p class="eyebrow">iPhone app</p>
+      <h1>Wee Alarm</h1>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p class="lead">
+      A simple alarm that reminds you to let your dog out for a wee, for when you're deep in a game or busy working and
+      lose track of time.
+    </p>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>Tell the app your dog's name, age and size, and it suggests how often they need a wee break.</li>
+      <li>A real alarm rings when it's time, even if your phone is on silent or in a Focus mode.</li>
+      <li>Tap <strong>Let out</strong> on the alarm or in the app, and the next timer starts.</li>
+      <li>Quiet hours stop alarms overnight, and you can snooze for 15 minutes if you can't step away yet.</li>
+      <li>An animated dog gets more fidgety as wee time gets closer, so you can see at a glance how long is left.</li>
+    </ul>
+
+    <h2>Suggested intervals</h2>
+    <p>
+      Puppies every 2 hours, adults every 4 hours and seniors every 3 hours, with small dogs an hour sooner. You can
+      change the interval at any time. This is a general guide, not veterinary advice. If your dog has a health
+      condition, ask your vet how often they need to go out.
+    </p>
+
+    <h2>Privacy</h2>
+    <p>
+      Wee Alarm doesn't collect any personal data. There are no accounts, ads or tracking, and your dog's details stay
+      on your iPhone. Read the <a href={url('wee-alarm/privacy/')}>privacy policy</a>.
+    </p>
+
+    <h2 id="support">Support</h2>
+    <h3>The alarm didn't ring</h3>
+    <ul>
+      <li>
+        Open the iOS <strong>Settings</strong> app, tap <strong>Apps</strong> then <strong>Wee Alarm</strong>, and check
+        that alarms (or notifications) are allowed.
+      </li>
+      <li>Check whether the wee break fell inside your quiet hours. If it did, the alarm waits until the morning.</li>
+      <li>Wee Alarm needs iOS 26.1 or later.</li>
+    </ul>
+
+    <h3>Starting again</h3>
+    <p>
+      Tap the gear icon, then <strong>Start over</strong>. This removes your dog's details and cancels the alarm.
+    </p>
+
+    <h3>Something else?</h3>
+    <p>
+      Found a bug or have an idea? Please
+      <a href={`${repo}/issues/new`} rel="noopener" target="_blank">open an issue on GitHub</a>. Include your iPhone
+      model and iOS version.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .app-head {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .app-head img {
+    border-radius: 22%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  .app-head h1 {
+    margin: 0;
+  }
+  .app-head .eyebrow {
+    margin: 0 0 0.25rem;
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
+</style>
