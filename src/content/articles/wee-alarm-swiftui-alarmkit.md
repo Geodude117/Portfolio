@@ -67,7 +67,7 @@ The app is small (about 1,600 lines of Swift), and it's organised around a singl
 <path d="M150 329 H105 V284" class="ln" marker-end="url(#w1a)"/>
 <text x="20" y="320" class="lbl">button tap</text>
 <path d="M200 255 C230 255, 230 132, 246 132" class="ln" marker-end="url(#w1a)"/>
-<text x="212" y="208" class="lbl m">letOut()</text>
+<text x="222" y="200" text-anchor="end" class="lbl m">letOut()</text>
 <rect x="490" y="230" width="190" height="50" rx="10" class="box"/>
 <text x="585" y="252" text-anchor="middle" class="t">NotificationHandler</text>
 <text x="585" y="270" text-anchor="middle" class="s">Let out · Snooze</text>
@@ -156,7 +156,7 @@ Nobody wants an alarm at 3am. Quiet hours (23:00 to 07:00 by default) stop that:
 <text x="142" y="104" text-anchor="middle" class="s" style="fill:var(--text)">let out 20:30</text>
 <path d="M150 112 C190 70, 230 70, 260 112" class="ln dash" marker-end="url(#w2a)"/>
 <text x="205" y="68" text-anchor="middle" class="lbl">+3 h</text>
-<circle cx="264" cy="120" r="6" class="box dim"/>
+<circle cx="264" cy="120" r="6" style="fill:var(--surface);stroke:var(--faint);stroke-width:1.5;stroke-dasharray:3 2"/>
 <text x="290" y="100" class="s fa">23:30 is too late</text>
 <path d="M272 128 C380 150, 470 150, 560 128" class="ln hi" marker-end="url(#w2h)"/>
 <text x="416" y="182" text-anchor="middle" class="lbl">pushed to the end of quiet hours</text>
