@@ -106,9 +106,9 @@ A `CardCounter` class tracked the running count as every card was dealt, and der
 <line x1="120" y1="123" x2="146" y2="123" class="ln" marker-end="url(#b2a)"/>
 <rect x="150" y="83" width="160" height="80" rx="10" class="box"/>
 <text x="230" y="105" text-anchor="middle" class="t">Score the card</text>
-<text x="230" y="125" text-anchor="middle" class="s m">2–6   +1</text>
-<text x="230" y="141" text-anchor="middle" class="s m">7–9    0</text>
-<text x="230" y="157" text-anchor="middle" class="s m">10–A  −1</text>
+<text x="196" y="125" class="s m">2–6</text><text x="264" y="125" text-anchor="end" class="s m acc">+1</text>
+<text x="196" y="141" class="s m">7–9</text><text x="264" y="141" text-anchor="end" class="s m">0</text>
+<text x="196" y="157" class="s m">10–A</text><text x="264" y="157" text-anchor="end" class="s m">−1</text>
 <line x1="310" y1="123" x2="336" y2="123" class="ln" marker-end="url(#b2a)"/>
 <rect x="340" y="83" width="140" height="80" rx="10" class="box hi"/>
 <text x="410" y="118" text-anchor="middle" class="t">Running count</text>

@@ -84,17 +84,16 @@ The schema lives in a SQL Server Database Project (`.sqlproj`), so tables and st
 <text x="259" y="132" class="s m">City</text><text x="431" y="132" text-anchor="end" class="lbl m">nvarchar</text>
 <text x="259" y="154" class="s m">Postcode</text><text x="431" y="154" text-anchor="end" class="lbl m">nvarchar</text>
 <text x="259" y="176" class="s m">CustomerId</text><text x="431" y="176" text-anchor="end" class="lbl m">GUID · FK</text>
-<rect x="480" y="10" width="200" height="120" rx="10" class="box"/>
+<rect x="480" y="10" width="200" height="142" rx="10" class="box"/>
 <text x="494" y="34" class="t">ContactInformation</text>
 <line x1="480" y1="44" x2="680" y2="44" class="ln" style="stroke:var(--border)"/>
 <text x="494" y="66" class="s m" style="fill:var(--text)">Id</text><text x="666" y="66" text-anchor="end" class="lbl m">int identity · PK</text>
 <text x="494" y="88" class="s m">Type</text><text x="666" y="88" text-anchor="end" class="lbl m">Email | Telephone</text>
 <text x="494" y="110" class="s m">Value</text><text x="666" y="110" text-anchor="end" class="lbl m">nvarchar</text>
-<text x="494" y="148" class="s m">CustomerId</text><text x="666" y="148" text-anchor="end" class="lbl m">GUID · no FK</text>
-<rect x="480" y="132" width="200" height="26" rx="6" class="box dim"/>
+<text x="494" y="132" class="s m">CustomerId</text><text x="666" y="132" text-anchor="end" class="lbl m">GUID · no FK</text>
 <path d="M210 150 H245" class="ln" marker-start="url(#c2a)" marker-end="url(#c2a)"/>
 <text x="227" y="142" text-anchor="middle" class="lbl">1 : 1</text>
-<path d="M110 174 V204 H580 V162" class="ln dash" marker-end="url(#c2a)"/>
+<path d="M110 174 V204 H580 V156" class="ln dash" marker-end="url(#c2a)"/>
 <text x="460" y="198" class="lbl">1 : many (by convention only)</text>
 </svg></div><figcaption><b>Customers use GUIDs; child rows use identities.</b> The client generates the customer's GUID up front, so the API never has to read back an ID after inserting. Contact details are linked by <code>CustomerId</code>, but without a foreign key constraint.</figcaption></figure>
 
