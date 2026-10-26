@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, summary, tech, status, repo, link } = project.data;
+---
+
+<article class="card">
+  <div class="top">
+    <h3>{title}</h3>
+    <span class={`status ${status === 'Live' ? 'live' : ''}`}>{status}</span>
+  </div>
+  <p class="muted">{summary}</p>
+  {
+    tech.length > 0 && (
+      <ul class="tags">
+        {tech.map((t) => (
+          <li class="tag">{t}</li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    (repo || link) && (
+      <div class="actions">
+        {link && (
+          <a href={link} target="_blank" rel="noopener">
+            Visit ↗
+          </a>
+        )}
+        {repo && (
+          <a href={repo} target="_blank" rel="noopener">
+            Code ↗
+          </a>
+        )}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.35rem;
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease;
+  }
+  .card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    transform: translateY(-2px);
+  }
+  .top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .status {
+    font-size: 0.75rem;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .status.live {
+    color: var(--accent);
+  }
+  .status.live::before {
+    content: '●';
+    margin-right: 0.3rem;
+    font-size: 0.6rem;
+    vertical-align: 0.15em;
+  }
+  p {
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .actions {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+</style>

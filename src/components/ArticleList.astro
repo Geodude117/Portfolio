@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url, formatDate } from '../site';
+
+interface Props {
+  articles: CollectionEntry<'articles'>[];
+}
+
+const { articles } = Astro.props;
+---
+
+{
+  articles.length === 0 ? (
+    <p class="muted">No articles yet — the first one is on its way.</p>
+  ) : (
+    <ul class="list">
+      {articles.map((a) => (
+        <li>
+          <a href={url(`articles/${a.id}/`)}>
+            <time datetime={a.data.pubDate.toISOString()}>{formatDate(a.data.pubDate)}</time>
+            <span class="title">{a.data.title}</span>
+            <span class="desc">{a.data.description}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li + li {
+    border-top: 1px solid var(--border);
+  }
+  a {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    column-gap: 1.25rem;
+    padding: 1rem 0;
+    color: var(--text);
+  }
+  time {
+    grid-row: span 2;
+    font-size: 0.875rem;
+    color: var(--faint);
+    padding-top: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .title {
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+  a:hover .title {
+    color: var(--accent);
+  }
+  .desc {
+    font-size: 0.925rem;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-top: 0.15rem;
+  }
+  @media (max-width: 560px) {
+    a {
+      grid-template-columns: 1fr;
+    }
+    time {
+      grid-row: auto;
+    }
+  }
+</style>

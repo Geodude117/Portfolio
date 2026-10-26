@@ -1,0 +1,224 @@
+/* ---------- Theme: grey / blue ---------- */
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --text: #1c2531;
+  --muted: #5d6a7c;
+  --faint: #8a96a6;
+  --border: #dfe5ec;
+  --accent: #2c6cb0;
+  --accent-hover: #1f5590;
+  --accent-soft: #e6eff9;
+  --code-bg: #eef2f6;
+
+  --radius: 10px;
+  --max: 46rem;
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e131a;
+    --surface: #151c25;
+    --text: #e3e8ef;
+    --muted: #97a3b4;
+    --faint: #6b7787;
+    --border: #232e3c;
+    --accent: #6fa8e8;
+    --accent-hover: #93bff0;
+    --accent-soft: #182638;
+    --code-bg: #121922;
+    color-scheme: dark;
+  }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+}
+h1 {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  margin: 0 0 0.75rem;
+}
+h2 {
+  font-size: 1.35rem;
+  margin: 2.5rem 0 1rem;
+}
+h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+main {
+  padding: 3rem 0 4rem;
+  min-height: 70vh;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- Section headings with "view all" link ---------- */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+}
+.section-head h2 {
+  margin: 0;
+}
+.section-head a {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* ---------- Tags ---------- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+}
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ---------- Article body ---------- */
+.prose {
+  margin-top: 2rem;
+}
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1.25rem;
+}
+.prose h2 {
+  margin-top: 2.5rem;
+}
+.prose img {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+}
+.prose pre {
+  font-size: 0.875rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  line-height: 1.55;
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Responsive 16:9 video embeds (YouTube, Vimeo) */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin: 1.75rem 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+}
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Shiki dual themes: use dark colours when the OS is in dark mode */
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}

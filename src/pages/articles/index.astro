@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import { getArticles } from '../../lib/content';
+
+const articles = await getArticles();
+---
+
+<Base title="Articles" description="Write-ups on the projects I build and what I learn along the way.">
+  <p class="eyebrow">Articles</p>
+  <h1>Writing</h1>
+  <p class="muted lead">Write-ups on the projects I build, the decisions behind them and what I learned.</p>
+  <ArticleList articles={articles} />
+</Base>
+
+<style>
+  .lead {
+    margin: 0 0 1.5rem;
+    font-size: 1.1rem;
+  }
+</style>

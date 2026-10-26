@@ -1,0 +1,77 @@
+---
+import { SITE, url } from '../site';
+
+const links = [
+  { href: url('projects/'), label: 'Projects', match: 'projects' },
+  { href: url('articles/'), label: 'Articles', match: 'articles' },
+];
+
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href={url()} class="brand" aria-label="Home">
+      <span class="dot" aria-hidden="true"></span>
+      {SITE.name}
+    </a>
+    <nav aria-label="Main">
+      {
+        links.map((l) => (
+          <a href={l.href} aria-current={path.includes(`/${l.match}`) ? 'page' : undefined}>
+            {l.label}
+          </a>
+        ))
+      }
+      <a href={SITE.github} rel="me noopener" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.75rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  nav {
+    display: flex;
+    gap: 1.4rem;
+    font-size: 0.95rem;
+  }
+  nav a {
+    color: var(--muted);
+  }
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--text);
+  }
+  nav a[aria-current='page'] {
+    font-weight: 550;
+  }
+</style>

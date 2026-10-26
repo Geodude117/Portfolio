@@ -1,0 +1,70 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getArticles } from '../../lib/content';
+import { url, formatDate } from '../../site';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+
+const { article } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, draft } = article.data;
+const { Content } = await render(article);
+const words = (article.body ?? '').split(/\s+/).filter(Boolean).length;
+const minutes = Math.max(1, Math.round(words / 220));
+---
+
+<Base title={title} description={description}>
+  <article>
+    <a class="back" href={url('articles/')}>← All articles</a>
+    <header>
+      <h1>{title}</h1>
+      <p class="meta">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{minutes} min read</span>
+        {updatedDate && <span>· Updated {formatDate(updatedDate)}</span>}
+        {draft && <span class="draft">Draft</span>}
+      </p>
+      {
+        tags.length > 0 && (
+          <ul class="tags">
+            {tags.map((t) => (
+              <li class="tag">{t}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .back {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--faint);
+  }
+  .draft {
+    color: #b45309;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getProjects } from '../../lib/content';
+
+const projects = await getProjects();
+---
+
+<Base title="Projects" description="Things I've built — .NET, web and SwiftUI projects.">
+  <p class="eyebrow">Projects</p>
+  <h1>Things I've built</h1>
+  <p class="muted lead">A mix of work-adjacent .NET tools, web experiments and native iOS apps.</p>
+
+  <div class="stack">
+    {projects.map((p) => <ProjectCard project={p} />)}
+  </div>
+</Base>
+
+<style>
+  .lead {
+    margin: 0 0 2rem;
+    font-size: 1.1rem;
+  }
+  .stack {
+    display: grid;
+    gap: 1rem;
+  }
+</style>
