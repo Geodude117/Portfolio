@@ -34,7 +34,7 @@ Most of the structure comes from the SwiftUI version, where a view model holds t
 <rect x="364" y="60" width="145" height="78" rx="10" class="box hi"/>
 <text x="436" y="88" text-anchor="middle" class="t">State  S</text>
 <text x="436" y="108" text-anchor="middle" class="s">one plain object</text>
-<text x="436" y="126" text-anchor="middle" class="s m">phase · hands · balance</text>
+<text x="436" y="126" text-anchor="middle" class="s m">phase · balance</text>
 <rect x="541" y="60" width="145" height="78" rx="10" class="box"/>
 <text x="613" y="88" text-anchor="middle" class="t">render()</text>
 <text x="613" y="108" text-anchor="middle" class="s">reconciles the DOM</text>
@@ -43,7 +43,7 @@ Most of the structure comes from the SwiftUI version, where a view model holds t
 <line x1="332" y1="99" x2="360" y2="99" class="ln hi" marker-end="url(#d1h)"/>
 <line x1="509" y1="99" x2="537" y2="99" class="ln hi" marker-end="url(#d1h)"/>
 <line x1="222" y1="138" x2="120" y2="176" class="ln" marker-end="url(#d1a)"/>
-<text x="150" y="168" text-anchor="end" class="lbl m">deal()</text>
+<text x="150" y="150" text-anchor="end" class="lbl m">deal()</text>
 <line x1="259" y1="138" x2="259" y2="176" class="ln" marker-end="url(#d1a)"/>
 <text x="266" y="162" class="lbl">calls</text>
 <line x1="613" y1="138" x2="613" y2="176" class="ln" marker-end="url(#d1a)"/>
