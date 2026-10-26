@@ -39,8 +39,8 @@ public interface ICustomerStore
 <text x="345" y="109" text-anchor="middle" class="t m acc" style="font-size:13px">ICustomerStore</text>
 <path d="M300 124 C300 140, 150 140, 150 152" class="ln" marker-end="url(#e1a)"/>
 <path d="M390 124 C390 140, 540 140, 540 152" class="ln" marker-end="url(#e1a)"/>
-<text x="150" y="146" text-anchor="middle" class="lbl m">EF CORE</text>
-<text x="540" y="146" text-anchor="middle" class="lbl m">DAPPER</text>
+<text x="40" y="146" class="lbl m">EF CORE</text>
+<text x="650" y="146" text-anchor="end" class="lbl m">DAPPER</text>
 <rect x="40" y="156" width="220" height="44" rx="10" class="box"/>
 <text x="150" y="176" text-anchor="middle" class="t">EfCustomerStore</text>
 <text x="150" y="192" text-anchor="middle" class="s">you write LINQ</text>
@@ -153,7 +153,7 @@ Creating a customer can include their first orders, and either everything is sav
 <rect x="370" y="36" width="300" height="34" rx="10" class="box hi"/>
 <text x="386" y="58" class="s m" style="fill:var(--text)">await conn.OpenAsync()</text>
 <rect x="370" y="78" width="300" height="34" rx="10" class="box hi"/>
-<text x="386" y="100" class="s m" style="fill:var(--text)">tx = await conn.BeginTransactionAsync()</text>
+<text x="386" y="100" class="s m" style="fill:var(--text)">await conn.BeginTransactionAsync()</text>
 <rect x="370" y="120" width="300" height="34" rx="10" class="box hi"/>
 <text x="386" y="142" class="s m" style="fill:var(--text)">INSERT Customers … OUTPUT INSERTED.Id</text>
 <rect x="370" y="162" width="300" height="34" rx="10" class="box hi"/>
