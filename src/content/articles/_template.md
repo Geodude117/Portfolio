@@ -3,6 +3,7 @@ title: Article template
 description: Copy this file to start a new article. It stays hidden on the live site because draft is true.
 pubDate: 2026-10-26
 tags: [Template]
+ai: "Describe how AI was used for this article, or delete this line if it wasn't."
 draft: true
 ---
 

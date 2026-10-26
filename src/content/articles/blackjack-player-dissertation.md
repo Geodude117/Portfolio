@@ -3,6 +3,7 @@ title: "Blackjack Player: the 2017 dissertation where it all started"
 description: My final-year Computer Science project — a Unity and C# blackjack app with an advice mode and a Hi-Lo card-counting simulator — and how its ideas carried through to the game I run today.
 pubDate: 2026-10-26T11:00:00Z
 tags: [C#, Unity, Algorithms, Card counting, University]
+ai: "Made with AI: this article, its diagrams and the bet-spread chart were produced with Claude, an AI assistant, from the 2017 dissertation report. The screenshots are taken from that report."
 ---
 
 Long before [Perfect Pair Blackjack](https://ppblackjack.co.uk) existed, there was **Blackjack Player**: my final-year project for a BSc in Computer Science, submitted in October 2017. It was an Android app built in Unity and C#, written up in a 72-page report, and its aim went beyond letting someone play blackjack. I wanted the app to *play itself*: to simulate hundreds of hands using different strategies, including card counting, and show which one made money.

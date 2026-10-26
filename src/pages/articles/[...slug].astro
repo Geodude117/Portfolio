@@ -1,6 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import AiNotice from '../../components/AiNotice.astro';
 import { getArticles } from '../../lib/content';
 import { url, formatDate } from '../../site';
 
@@ -10,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { title, description, pubDate, updatedDate, tags, draft } = article.data;
+const { title, description, pubDate, updatedDate, tags, draft, ai } = article.data;
 const { Content } = await render(article);
 const words = (article.body ?? '').split(/\s+/).filter(Boolean).length;
 const minutes = Math.max(1, Math.round(words / 220));
@@ -37,6 +38,7 @@ const minutes = Math.max(1, Math.round(words / 220));
           </ul>
         )
       }
+      {ai && <AiNotice text={ai} />}
     </header>
 
     <div class="prose">

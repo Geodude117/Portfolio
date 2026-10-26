@@ -1,11 +1,12 @@
 ---
 title: "EF Core vs Dapper: one API, two ways to talk to SQL Server"
-description: I built the same minimal API twice, once with Entity Framework Core and once with Dapper, over the same tables, and ran one test suite against both. Here's how each one stores and retrieves data, and when I'd reach for each.
+description: The same minimal API built twice with Claude (AI), once with Entity Framework Core and once with Dapper, over the same tables, with one test suite run against both. Here's how each one stores and retrieves data, and when I'd reach for each.
 pubDate: 2026-10-26T13:00:00Z
 tags: [C#, .NET, EF Core, Dapper, SQL Server, Testing]
+ai: "Made with AI: this article, its diagrams and the EfCoreVsDapper repository it describes (code, tests, README and CI) were generated with Claude, an AI assistant."
 ---
 
-"Should we use EF Core or Dapper?" comes up on almost every .NET team, and it's usually argued in the abstract. I wanted something concrete, so I built [a small repo](https://github.com/Geodude117/EfCoreVsDapper) that answers it with code: one API, one database, implemented twice.
+"Should we use EF Core or Dapper?" comes up on almost every .NET team, and it's usually argued in the abstract. I wanted something concrete, so I used Claude, an AI assistant, to build [a small repo](https://github.com/Geodude117/EfCoreVsDapper) that answers it with code: one API, one database, implemented twice.
 
 - **Entity Framework Core** is a full ORM. You describe your model in C#, write queries in LINQ, and EF Core generates the SQL, tracks changes and manages transactions for you.
 - **Dapper** is a *micro*-ORM. You write the SQL yourself, and Dapper does one job very well: it binds parameters and maps result rows onto C# objects.
@@ -113,7 +114,7 @@ await db.Customers
     .SingleOrDefaultAsync(ct);
 ```
 
-Dapper has no idea what a "customer with orders" is. Instead, I send two `SELECT` statements in one batch and read the result sets back in turn with `QueryMultiple`, which is still a single round trip:
+Dapper has no idea what a "customer with orders" is. Instead, the store sends two `SELECT` statements in one batch and read the result sets back in turn with `QueryMultiple`, which is still a single round trip:
 
 ```csharp
 const string sql = """
@@ -258,7 +259,7 @@ A final test writes data through one store and reads it through the other, check
 
 ## So which should you use?
 
-After writing both, my answer is "it depends", but I can be specific about what it depends on:
+Having both side by side, the answer is "it depends", but I can be specific about what it depends on:
 
 <div class="table-wrap">
 

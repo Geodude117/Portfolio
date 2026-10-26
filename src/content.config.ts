@@ -11,6 +11,8 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    // How AI was used to produce this article. Shown as a notice at the top of the page.
+    ai: z.string().optional(),
   }),
 });
 
@@ -26,6 +28,8 @@ const projects = defineCollection({
     link: z.string().url().optional(),
     article: z.string().optional(), // slug of a write-up in src/content/articles
     featured: z.boolean().default(false),
+    // How AI was used in this project. Shown on the project card.
+    ai: z.string().optional(),
     order: z.number().default(100),
   }),
 });

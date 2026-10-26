@@ -3,6 +3,7 @@ title: "Perfect Pair Blackjack: building a casino game in one HTML file"
 description: How the game works under the hood — a single state object, a phase-driven round, side-bet evaluation, soft-ace maths and drag-to-bet chips, all with no framework, no build step and no server.
 pubDate: 2026-10-26T10:00:00Z
 tags: [JavaScript, Game logic, Architecture, GitHub Pages]
+ai: "Made with AI: this article and its diagrams were produced with Claude, an AI assistant, from the game's source code. The web version of the game was also ported from the SwiftUI app with Claude's help."
 ---
 
 [Perfect Pair Blackjack](https://ppblackjack.co.uk) is a free-to-play blackjack table with two side bets, Perfect Pairs and 21+3. It started as a university project in Unity and C#, became a native SwiftUI app, and is now a web game.

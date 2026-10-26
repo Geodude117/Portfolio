@@ -3,6 +3,7 @@ title: "Customer.API: a layered .NET API, from stored procedures to a typed clie
 description: How I structured a customer-management API into separate projects for the API, business logic, data access, database and client, and what I'd do differently looking back at it today.
 pubDate: 2026-10-26T12:00:00Z
 tags: [C#, .NET, ASP.NET Core, SQL Server, Dapper, Architecture]
+ai: "Made with AI: this article, its diagrams and the code review in 'Looking back' were produced with Claude, an AI assistant, from the Customer.API source code."
 ---
 
 Customer.API is a REST API for managing customer records: names, dates of birth, addresses and contact details. The domain is deliberately simple, and that's the point. With the business problem out of the way, the project is really about structure: how to split an API into layers that each have one job, and how those layers talk to each other.

@@ -18,7 +18,7 @@ const { articles } = Astro.props;
         <li>
           <a href={url(`articles/${a.id}/`)}>
             <time datetime={a.data.pubDate.toISOString()}>{formatDate(a.data.pubDate)}</time>
-            <span class="title">{a.data.title}</span>
+            <span class="title">{a.data.title}{a.data.ai && <span class="ai" title={a.data.ai}>AI used</span>}</span>
             <span class="desc">{a.data.description}</span>
           </a>
         </li>
@@ -53,6 +53,19 @@ const { articles } = Astro.props;
   .title {
     font-weight: 600;
     transition: color 0.15s ease;
+  }
+  .ai {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    vertical-align: 0.15em;
   }
   a:hover .title {
     color: var(--accent);

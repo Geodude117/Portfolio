@@ -1,13 +1,14 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { url } from '../site';
+import AiNotice from './AiNotice.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
-const { title, summary, tech, status, repo, link, article } = project.data;
+const { title, summary, tech, status, repo, link, article, ai } = project.data;
 ---
 
 <article class="card">
@@ -25,6 +26,7 @@ const { title, summary, tech, status, repo, link, article } = project.data;
       </ul>
     )
   }
+  {ai && <AiNotice text={ai} compact />}
   {
     (repo || link || article) && (
       <div class="actions">

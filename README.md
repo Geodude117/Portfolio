@@ -14,6 +14,16 @@ My personal portfolio and blog, built with [Astro](https://astro.build) and host
 Videos: upload to YouTube or Vimeo and paste the embed snippet from the template.
 Images: put them in `public/images/` and reference them as `/Portfolio/images/your-image.png`.
 
+## Saying how AI was used
+
+Every article and project can have an `ai:` line at the top describing how AI was used, for example:
+
+```yaml
+ai: "This article was written with Claude, an AI assistant, from my source code."
+```
+
+Articles show it as a notice under the title and an "AI used" badge in article lists; projects show it on their card. Leave the line out only if no AI was involved.
+
 ## Adding a project
 
 Add a Markdown file to `src/content/projects/` with `title`, `summary`, `tech`, `status` (`Live`, `In progress` or `Archived`), optional `link` and `repo` URLs, and `featured: true` to show it on the home page. `order` controls the sort order.
