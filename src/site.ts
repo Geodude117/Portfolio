@@ -4,9 +4,14 @@ export const SITE = {
   title: 'Geovan — Developer',
   role: 'Application Developer Team Leader',
   intro:
-    'I build .NET applications by day and native iOS apps by night. This is where I write about what I build, what broke, and what I learned fixing it.',
+    'I lead an application development team in the financial debt services sector, building and supporting the systems that keep a busy call centre running smoothly.',
+  // Shown under the intro on the home page, one string per paragraph.
+  about: [
+    "My day-to-day work centres on .NET, RavenDB and FICO's Debt Manager platform, where I focus on delivering reliable, practical solutions and helping my team grow along the way.",
+    "I'm currently completing a Level 4 QA AI & Automation Practitioner apprenticeship, exploring how AI and automation can improve quality, efficiency and the way teams work. I'm especially interested in turning new technology into real, usable improvements rather than hype.",
+  ],
   description:
-    'Portfolio and articles by Geovan — .NET developer, team lead and SwiftUI hobbyist.',
+    'Portfolio and technical write-ups by Geovan — application development team leader working with .NET, RavenDB and FICO Debt Manager.',
   github: 'https://github.com/Geodude117',
   linkedin: '', // add your LinkedIn URL to show it in the footer
   email: '', // add an email address to show a contact link

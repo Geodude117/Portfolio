@@ -1,7 +1,7 @@
 ---
 title: "Perfect Pair Blackjack: building a casino game in one HTML file"
 description: How the game works under the hood — a single state object, a phase-driven round, side-bet evaluation, soft-ace maths and drag-to-bet chips, all with no framework, no build step and no server.
-pubDate: 2026-10-26
+pubDate: 2026-10-26T10:00:00Z
 tags: [JavaScript, Game logic, Architecture, GitHub Pages]
 ---
 
