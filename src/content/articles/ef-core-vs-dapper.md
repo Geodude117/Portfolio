@@ -254,7 +254,7 @@ public async Task Duplicate_email_throws_and_leaves_nothing_behind(string kind)
 }
 ```
 
-A final test writes data through one store and reads it through the other, checking the results are identical. GitHub Actions runs the whole suite on every push.
+A final test writes data through one store and reads it through the other, checking the results are identical. That makes 21 tests in all (ten behaviours, each run against both stores, plus the cross-check), and GitHub Actions runs them on every push.
 
 ## So which should you use?
 
