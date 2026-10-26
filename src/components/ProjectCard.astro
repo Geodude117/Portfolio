@@ -11,7 +11,7 @@ interface Props {
 
 const { project, compact = false } = Astro.props;
 const { title, summary, tech, status, repo, link, article, ai, date } = project.data;
-const shownTech = compact ? tech.slice(0, 4) : tech;
+const shownTech = compact ? tech.slice(0, 3) : tech;
 const moreTech = tech.length - shownTech.length;
 ---
 
