@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../site';
+
+const repo = 'https://github.com/Geodude117/BattleShips';
+---
+
+<Base
+  title="Salvo Sums"
+  description="Salvo Sums is a Battleships-style iPhone and iPad game where every shot is earned by answering a GCSE maths question."
+>
+  <div class="app-head">
+    <img src={url('images/salvo-sums/icon.png')} alt="Salvo Sums app icon" width="96" height="96" />
+    <div>
+      <p class="eyebrow">iPhone &amp; iPad app</p>
+      <h1>Salvo Sums</h1>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p class="lead">
+      A Battleships-style game where every shot is earned by answering a GCSE maths question. Sink the computer's
+      fleet before it sinks yours, and learn from a worked explanation whenever you get one wrong.
+    </p>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>Place your fleet, then answer a multiple-choice question to load your guns.</li>
+      <li>Foundation questions earn one shot, Higher questions earn two, and every third correct answer in a row earns a bonus shot.</li>
+      <li>Five in a row unlocks a special weapon: an Airstrike or a Sonar scan.</li>
+      <li>The computer has to "answer" too, so your accuracy decides the battle.</li>
+      <li>Topics include fractions, percentages, ratio, linear equations, area, probability, expanding brackets and Pythagoras.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <p>
+      Salvo Sums doesn't collect any personal data. There are no accounts, ads or tracking, and it works fully offline.
+      Read the <a href={url('salvo-sums/privacy/')}>privacy policy</a>.
+    </p>
+
+    <h2 id="support">Support</h2>
+    <p>
+      Found a bug, spotted a maths mistake, or have an idea? Please
+      <a href={`${repo}/issues/new`} rel="noopener" target="_blank">open an issue on GitHub</a>. Include your device,
+      iOS version and, for a maths question, the question text so it can be checked and fixed.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .app-head {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .app-head img {
+    border-radius: 22%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  .app-head h1 {
+    margin: 0;
+  }
+  .app-head .eyebrow {
+    margin: 0 0 0.25rem;
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
+</style>
