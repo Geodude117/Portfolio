@@ -22,6 +22,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    date: z.coerce.date(), // when the project was built or last significantly updated; cards sort newest first
     tech: z.array(z.string()).default([]),
     status: z.enum(['Live', 'Complete', 'In progress', 'Archived']).default('In progress'),
     repo: z.string().url().optional(),

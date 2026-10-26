@@ -1,15 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import ArticleList from '../components/ArticleList.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 import { getArticles, getProjects } from '../lib/content';
 import { SITE, url } from '../site';
 
-const articles = (await getArticles()).slice(0, 4);
-const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 4);
+const articles = (await getArticles()).slice(0, 6);
+const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 6);
 ---
 
-<Base>
+<Base wide>
   <section class="hero">
     <div class="hero-top">
       <img
@@ -34,23 +34,28 @@ const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 4
   </section>
 
   <div class="section-head">
-    <h2>Featured projects</h2>
+    <h2>Projects</h2>
     <a href={url('projects/')}>All projects →</a>
   </div>
-  <div class="grid">
-    {projects.map((p) => <ProjectCard project={p} />)}
-  </div>
+  <ul class="card-grid">
+    {projects.map((p) => <li><ProjectCard project={p} compact /></li>)}
+  </ul>
 
   <div class="section-head">
     <h2>Latest articles</h2>
     <a href={url('articles/')}>All articles →</a>
   </div>
-  <ArticleList articles={articles} />
+  <ul class="card-grid">
+    {articles.map((a) => <li><ArticleCard article={a} /></li>)}
+  </ul>
 </Base>
 
 <style>
   .hero {
     padding: 2.5rem 0 1rem;
+  }
+  .section-head:first-of-type {
+    margin-top: 3.5rem;
   }
   .hero-top {
     display: flex;
@@ -132,10 +137,5 @@ const projects = (await getProjects()).filter((p) => p.data.featured).slice(0, 4
     .btn.primary:hover {
       color: #0e131a;
     }
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    gap: 1rem;
   }
 </style>

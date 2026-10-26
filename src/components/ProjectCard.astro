@@ -1,78 +1,101 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { url } from '../site';
+import { url, formatDate } from '../site';
 import AiNotice from './AiNotice.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
+  /** Compact cards (used in grids) show a small AI badge instead of the full notice. */
+  compact?: boolean;
 }
 
-const { project } = Astro.props;
-const { title, summary, tech, status, repo, link, article, ai } = project.data;
+const { project, compact = false } = Astro.props;
+const { title, summary, tech, status, repo, link, article, ai, date } = project.data;
+const shownTech = compact ? tech.slice(0, 4) : tech;
+const moreTech = tech.length - shownTech.length;
 ---
 
-<article class="card">
-  <div class="top">
-    <h3>{title}</h3>
-    <span class={`status ${status === 'Live' ? 'live' : ''}`}>{status}</span>
+<article class:list={['card', { compact }]}>
+  <div class="meta">
+    <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    <span class:list={['status', { live: status === 'Live' }]}>{status}</span>
   </div>
-  <p class="muted">{summary}</p>
+
+  <h3>
+    {article ? <a class="stretch" href={url(`articles/${article}/`)}>{title}</a> : title}
+  </h3>
+  <p class="summary">{summary}</p>
+
   {
-    tech.length > 0 && (
+    shownTech.length > 0 && (
       <ul class="tags">
-        {tech.map((t) => (
+        {shownTech.map((t) => (
           <li class="tag">{t}</li>
         ))}
+        {moreTech > 0 && <li class="tag more">+{moreTech}</li>}
       </ul>
     )
   }
-  {ai && <AiNotice text={ai} compact />}
-  {
-    (repo || link || article) && (
-      <div class="actions">
-        {article && <a href={url(`articles/${article}/`)}>Read the write-up →</a>}
-        {link && (
+
+  {ai && !compact && <AiNotice text={ai} compact />}
+
+  <div class="foot">
+    {ai && compact && <span class="ai" title={ai}>AI used</span>}
+    <div class="actions">
+      {article && <a href={url(`articles/${article}/`)}>Write-up →</a>}
+      {
+        link && (
           <a href={link} target="_blank" rel="noopener">
             Visit ↗
           </a>
-        )}
-        {repo && (
+        )
+      }
+      {
+        repo && (
           <a href={repo} target="_blank" rel="noopener">
             Code ↗
           </a>
-        )}
-      </div>
-    )
-  }
+        )
+      }
+    </div>
+  </div>
 </article>
 
 <style>
   .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.25rem 1.35rem;
+    padding: 1.2rem 1.3rem 1.1rem;
     transition:
       border-color 0.15s ease,
-      transform 0.15s ease;
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
   }
   .card:hover {
     border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 10%, transparent);
   }
-  .top {
+  .meta {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
   }
   .status {
-    font-size: 0.75rem;
-    color: var(--faint);
     white-space: nowrap;
   }
   .status.live {
     color: var(--accent);
+    font-weight: 600;
   }
   .status.live::before {
     content: '●';
@@ -80,16 +103,73 @@ const { title, summary, tech, status, repo, link, article, ai } = project.data;
     font-size: 0.6rem;
     vertical-align: 0.15em;
   }
-  p {
-    margin: 0.35rem 0 0;
-    font-size: 0.95rem;
+  h3 {
+    margin: 0.45rem 0 0;
+    font-size: 1.1rem;
+  }
+  h3 a {
+    color: var(--text);
+  }
+  .card:hover h3 a {
+    color: var(--accent);
+  }
+  /* Make the whole card clickable via the title link, while keeping other links usable */
+  .stretch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+  }
+  .summary {
+    margin: 0.4rem 0 0;
+    font-size: 0.93rem;
     line-height: 1.6;
+    color: var(--muted);
+  }
+  .compact .summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .tags {
+    margin-top: 0.8rem;
+  }
+  .tag.more {
+    background: none;
+    color: var(--faint);
+  }
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
   }
   .actions {
+    position: relative; /* sits above the stretched title link */
+    z-index: 1;
     display: flex;
-    gap: 1.1rem;
-    margin-top: 0.9rem;
-    font-size: 0.9rem;
+    gap: 1rem;
+    margin-left: auto;
+    font-size: 0.875rem;
     font-weight: 500;
+  }
+  .ai {
+    position: relative;
+    z-index: 1;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .card :global(.ai-notice) {
+    position: relative;
+    z-index: 1;
   }
 </style>

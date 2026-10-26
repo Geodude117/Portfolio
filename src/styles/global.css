@@ -95,6 +95,22 @@ iframe {
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+.container.wide {
+  max-width: 68rem;
+}
+
+/* Card grids: 1 column on phones, 2 on tablets, 3 on wide screens */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.card-grid.two {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
+}
 
 main {
   padding: 3rem 0 4rem;

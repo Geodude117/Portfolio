@@ -1,6 +1,7 @@
 ---
 title: EF Core vs Dapper
 summary: The same .NET 10 minimal API, built with Claude (AI), implemented twice over one SQL Server schema — once with Entity Framework Core, once with Dapper — with a Testcontainers test suite that runs every test against both.
+date: 2026-10-26T13:00:00Z
 tech: [C#, .NET 10, EF Core, Dapper, SQL Server, Testcontainers]
 status: Complete
 ai: "Made with AI: the code, tests, CI workflow and write-up were generated with Claude, an AI assistant."

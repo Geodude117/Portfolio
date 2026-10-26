@@ -26,7 +26,7 @@ Articles show it as a notice under the title and an "AI used" badge in article l
 
 ## Adding a project
 
-Add a Markdown file to `src/content/projects/` with `title`, `summary`, `tech`, `status` (`Live`, `In progress` or `Archived`), optional `link` and `repo` URLs, and `featured: true` to show it on the home page. `order` controls the sort order.
+Add a Markdown file to `src/content/projects/` with `title`, `summary`, `date`, `tech`, `status` (`Live`, `Complete`, `In progress` or `Archived`), optional `link`, `repo` and `article` values, and `featured: true` to show it on the home page. Projects and articles are shown as cards, newest first, by `date` and `pubDate`.
 
 ## Changing your details
 

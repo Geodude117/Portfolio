@@ -1,0 +1,109 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url, formatDate } from '../site';
+import { readingMinutes } from '../lib/content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { title, description, pubDate, tags, ai } = article.data;
+const minutes = readingMinutes(article.body);
+---
+
+<article class="card">
+  <div class="meta">
+    <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+    <span aria-hidden="true">·</span>
+    <span>{minutes} min read</span>
+  </div>
+  <h3><a class="stretch" href={url(`articles/${article.id}/`)}>{title}</a></h3>
+  <p class="desc">{description}</p>
+  <div class="foot">
+    <ul class="tags">
+      {tags.slice(0, 3).map((t) => (
+        <li class="tag">{t}</li>
+      ))}
+    </ul>
+    {ai && <span class="ai" title={ai}>AI used</span>}
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+  .meta {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+  h3 {
+    margin: 0.45rem 0 0;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+  h3 a {
+    color: var(--text);
+  }
+  .card:hover h3 a {
+    color: var(--accent);
+  }
+  .stretch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+  }
+  .desc {
+    margin: 0.45rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .foot {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 0.9rem;
+  }
+  .tags {
+    margin: 0;
+  }
+  .ai {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    white-space: nowrap;
+  }
+</style>

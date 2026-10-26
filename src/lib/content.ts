@@ -6,8 +6,14 @@ export async function getArticles() {
   return all.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
-/** Projects sorted by `order` (lowest first), then title. */
+/** Projects, newest first by `date`. */
 export async function getProjects() {
   const all = await getCollection('projects');
-  return all.sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title));
+  return all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf() || a.data.title.localeCompare(b.data.title));
+}
+
+/** Estimated reading time in minutes, at about 220 words a minute. */
+export function readingMinutes(body: string | undefined): number {
+  const words = (body ?? '').split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
 }

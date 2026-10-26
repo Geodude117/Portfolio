@@ -6,23 +6,19 @@ import { getProjects } from '../../lib/content';
 const projects = await getProjects();
 ---
 
-<Base title="Projects" description=".NET and web projects, each with a technical write-up and a note on how AI was used.">
+<Base wide title="Projects" description=".NET and web projects, each with a technical write-up and a note on how AI was used.">
   <p class="eyebrow">Projects</p>
   <h1>Projects</h1>
-  <p class="muted lead">Each project has a technical write-up, and each card says how Claude (AI) was used.</p>
+  <p class="muted lead">Newest first. Each project has a technical write-up, and each card says how Claude (AI) was used.</p>
 
-  <div class="stack">
-    {projects.map((p) => <ProjectCard project={p} />)}
-  </div>
+  <ul class="card-grid two">
+    {projects.map((p) => <li><ProjectCard project={p} /></li>)}
+  </ul>
 </Base>
 
 <style>
   .lead {
     margin: 0 0 2rem;
     font-size: 1.1rem;
-  }
-  .stack {
-    display: grid;
-    gap: 1rem;
   }
 </style>

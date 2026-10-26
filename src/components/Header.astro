@@ -1,6 +1,11 @@
 ---
 import { SITE, url } from '../site';
 
+interface Props {
+  wide?: boolean;
+}
+const { wide = false } = Astro.props;
+
 const links = [
   { href: url('projects/'), label: 'Projects', match: 'projects' },
   { href: url('articles/'), label: 'Articles', match: 'articles' },
@@ -10,7 +15,7 @@ const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
-  <div class="container bar">
+  <div class:list={['container', 'bar', { wide }]}>
     <a href={url()} class="brand" aria-label="Home">
       <span class="dot" aria-hidden="true"></span>
       {SITE.name}

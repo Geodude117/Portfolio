@@ -1,6 +1,7 @@
 ---
 title: Perfect Pair Blackjack
 summary: A casino-style blackjack table with Perfect Pairs and 21+3 side bets, drag-to-bet chips and strategy hints. A single HTML file with no framework, no build step and no server, hosted on GitHub Pages.
+date: 2026-10-25
 tech: [JavaScript, HTML, CSS, GitHub Pages]
 status: Live
 ai: "Made with AI: the web version was ported from the SwiftUI app with Claude, an AI assistant, which also helped with testing, DNS, SEO and ad setup. The write-up was produced with Claude."

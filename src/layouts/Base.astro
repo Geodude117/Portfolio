@@ -7,9 +7,11 @@ import { SITE, url } from '../site';
 interface Props {
   title?: string;
   description?: string;
+  /** Wider layout for card grids (home, projects, articles). */
+  wide?: boolean;
 }
 
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, wide = false } = Astro.props;
 const pageTitle = title ? `${title} · ${SITE.name}` : SITE.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -41,12 +43,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     />
   </head>
   <body>
-    <Header />
+    <Header wide={wide} />
     <main>
-      <div class="container">
+      <div class:list={['container', { wide }]}>
         <slot />
       </div>
     </main>
-    <Footer />
+    <Footer wide={wide} />
   </body>
 </html>
