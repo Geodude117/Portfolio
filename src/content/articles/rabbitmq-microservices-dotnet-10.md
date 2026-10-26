@@ -572,7 +572,7 @@ The API above has a subtle bug that every event-driven system has to solve: **sa
 
 The **transactional outbox** fixes this. Instead of publishing directly, the API writes the event to an `OutboxMessages` table **in the same database transaction** as the order. A background dispatcher then publishes anything unsent and marks it sent once RabbitMQ confirms.
 
-<figure class="diagram"><div class="scroll"><svg viewBox="0 0 690 200" role="img" aria-label="Outbox pattern. POST /orders writes the order and an outbox message in one SQL transaction. An outbox dispatcher background service polls for unsent messages, publishes them to RabbitMQ with publisher confirms, and marks each one sent only after the broker confirms it.">
+<figure class="diagram"><div class="scroll"><svg viewBox="0 0 690 192" role="img" aria-label="Outbox pattern. POST /orders writes the order and an outbox message in one SQL transaction. An outbox dispatcher background service polls for unsent messages, publishes them to RabbitMQ with publisher confirms, and marks each one sent only after the broker confirms it.">
 <defs><marker id="r3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker><marker id="r3h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah hi"/></marker></defs>
 <rect x="10" y="40" width="130" height="50" rx="10" class="box"/>
 <text x="75" y="62" text-anchor="middle" class="t m" style="font-size:13px">POST /orders</text>
@@ -594,7 +594,7 @@ The **transactional outbox** fixes this. Instead of publishing directly, the API
 <text x="635" y="84" text-anchor="middle" class="s">confirms</text>
 <line x1="560" y1="70" x2="586" y2="70" class="ln hi" marker-end="url(#r3h)"/>
 <path d="M500 100 C500 160, 420 160, 374 116" class="ln dash" marker-end="url(#r3a)"/>
-<text x="520" y="168" class="lbl">mark sent after the broker confirms</text>
+<text x="450" y="180" text-anchor="middle" class="lbl">mark sent after the broker confirms</text>
 </svg></div><figcaption><b>The order and its event are saved together or not at all.</b> If publishing fails, the message stays in the outbox and the dispatcher tries again on its next pass.</figcaption></figure>
 
 ```csharp
