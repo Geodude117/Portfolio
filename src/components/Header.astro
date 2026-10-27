@@ -9,7 +9,7 @@ const { wide = false } = Astro.props;
 const links = [
   { href: url('projects/'), label: 'Projects', match: 'projects' },
   { href: url('articles/'), label: 'Articles', match: 'articles' },
-  { href: url('guides/'), label: 'C# Guides', match: 'guides' },
+  { href: url('guides/'), label: 'C# Guides', short: 'Guides', match: 'guides' },
   { href: url('basketball/'), label: 'Basketball', match: 'basketball' },
 ];
 
@@ -26,7 +26,14 @@ const path = Astro.url.pathname;
       {
         links.map((l) => (
           <a href={l.href} aria-current={path.includes(`/${l.match}`) ? 'page' : undefined}>
-            {l.label}
+            {l.short ? (
+              <>
+                <span class="full">{l.label}</span>
+                <span class="short">{l.short}</span>
+              </>
+            ) : (
+              l.label
+            )}
           </a>
         ))
       }
@@ -74,6 +81,10 @@ const path = Astro.url.pathname;
   }
   nav a {
     color: var(--muted);
+    white-space: nowrap;
+  }
+  .short {
+    display: none;
   }
   @media (max-width: 480px) {
     nav {
@@ -81,8 +92,12 @@ const path = Astro.url.pathname;
       font-size: 0.82rem;
     }
     /* GitHub is also in the footer, so drop it on phones to fit the menu */
-    .gh {
+    .gh,
+    .full {
       display: none;
+    }
+    .short {
+      display: inline;
     }
     .brand {
       font-size: 0.95rem;
