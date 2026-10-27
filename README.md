@@ -8,8 +8,9 @@ My personal portfolio and blog, built with [Astro](https://astro.build) and host
 
 1. Copy `src/content/articles/_template.md` to a new file, e.g. `src/content/articles/my-new-post.md`. The file name becomes the URL.
 2. Update the `title`, `description`, `pubDate` and `tags` at the top.
-3. Set `draft: false` (or remove the line) when it's ready to publish.
-4. Commit and push to `main`. The site rebuilds and goes live in about a minute.
+3. Add `guide: true` if it's a C# how-to guide, so it's listed under C# Guides instead of Articles.
+4. Set `draft: false` (or remove the line) when it's ready to publish.
+5. Commit and push to `main`. The site rebuilds and goes live in about a minute.
 
 Videos: upload to YouTube or Vimeo and paste the embed snippet from the template.
 Images: put them in `public/images/` and reference them as `/Portfolio/images/your-image.png`.

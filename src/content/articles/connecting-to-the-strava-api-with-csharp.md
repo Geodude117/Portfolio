@@ -3,6 +3,7 @@ title: "Connecting to the Strava API with C# and .NET"
 description: "Building a typed Strava API client in .NET with dependency injection, IHttpClientFactory, a DelegatingHandler for OAuth, source-generated JSON and IAsyncEnumerable paging — starting with my Yorkshire Marathon data."
 pubDate: 2026-10-26T21:15:00Z
 tags: [C#, .NET, HttpClient, Strava, API]
+guide: true
 ai: "Made with AI: this article and its sample code were drafted with Claude, an AI assistant (Anthropic). The diagram was also produced with Claude."
 ---
 

@@ -3,6 +3,7 @@ title: "Adding Swagger to a .NET 10 API: OpenAPI, Swagger UI and Scalar"
 description: A step-by-step guide to API documentation in .NET 10 — the built-in OpenAPI 3.1 generator, adding Swagger UI or Scalar, describing endpoints properly, JWT authentication in the UI, multiple versions, and what to do with an existing Swashbuckle setup.
 pubDate: 2026-10-26T22:40:00Z
 tags: [C#, .NET 10, ASP.NET Core, OpenAPI, Swagger]
+guide: true
 ai: "Made with AI: this guide, its sample code and diagram were produced with Claude, an AI assistant. The code is written against .NET 10 but hasn't been compiled or run yet."
 ---
 

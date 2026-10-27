@@ -5,6 +5,7 @@ pubDate: 2026-10-26
 tags: [Template]
 ai: "Describe how AI was used for this article, or delete this line if it wasn't."
 draft: true
+guide: false # set to true for a C# how-to guide
 ---
 
 Copy this file, rename it (the file name becomes the URL, e.g. `my-new-post.md` → `/articles/my-new-post/`), update the details at the top, set `draft: false`, then push.

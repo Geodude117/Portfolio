@@ -11,6 +11,8 @@ const articles = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    // true for C# how-to guides: listed on the C# Guides page instead of Articles
+    guide: z.boolean().default(false),
     // How AI was used to produce this article. Shown as a notice at the top of the page.
     ai: z.string().optional(),
   }),

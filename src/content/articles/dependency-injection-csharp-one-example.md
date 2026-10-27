@@ -3,6 +3,7 @@ title: "Dependency injection in C#, explained with one example"
 description: A short, plain-English explanation of dependency injection in C# and .NET, using a single example — an order service that sends a confirmation — from the tightly coupled version to the injected one, and why it makes testing easy.
 pubDate: 2026-10-26T23:45:00Z
 tags: [C#, .NET, Dependency Injection, Beginner]
+guide: true
 ai: "Made with AI: this article, its example code and diagram were produced with Claude, an AI assistant. The code hasn't been compiled or run yet."
 ---
 

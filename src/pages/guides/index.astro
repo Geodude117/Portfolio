@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getArticles } from '../../lib/content';
+
+const guides = (await getArticles()).filter((a) => a.data.guide);
+---
+
+<Base wide title="C# Guides" description="Practical C# and .NET how-to guides, produced with Claude (AI).">
+  <p class="eyebrow">C# Guides</p>
+  <h1>C# &amp; .NET guides</h1>
+  <p class="muted lead">Newest first. Practical how-tos for C# and .NET, with working examples. Each guide says how Claude, an AI assistant, was used to produce it.</p>
+
+  <ul class="card-grid">
+    {guides.map((a) => <li><ArticleCard article={a} /></li>)}
+  </ul>
+</Base>
+
+<style>
+  .lead {
+    margin: 0 0 2rem;
+    font-size: 1.1rem;
+  }
+</style>

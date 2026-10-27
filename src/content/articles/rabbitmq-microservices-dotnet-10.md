@@ -3,6 +3,7 @@ title: "RabbitMQ in .NET 10: publishing and receiving messages between microserv
 description: A practical guide to event-driven microservices with RabbitMQ and .NET 10 — topology, a reliable publisher with confirms, a consumer with manual acks, retries and dead-lettering, idempotency, the outbox pattern, testing and the best practices that keep messages from going missing.
 pubDate: 2026-10-26T21:40:00Z
 tags: [C#, .NET 10, RabbitMQ, Microservices, Messaging]
+guide: true
 ai: "Made with AI: this guide, its sample code and diagrams were produced with Claude, an AI assistant. The code is written against RabbitMQ.Client 7.2 but hasn't been compiled or run yet."
 ---
 

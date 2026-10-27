@@ -3,6 +3,7 @@ title: "Adding MudBlazor to a .NET 10 Blazor app: setup, layout, data grids, for
 description: A practical guide to MudBlazor in a .NET 10 Blazor Web App — installing it, getting render modes right so dialogs and menus actually work, building a layout, data grid, form, dialogs and snackbars, theming with dark mode, testing with bUnit, and the best practices that keep it maintainable.
 pubDate: 2026-10-26T23:00:00Z
 tags: [C#, .NET 10, Blazor, MudBlazor, UI]
+guide: true
 ai: "Made with AI: this guide, its sample code and diagram were produced with Claude, an AI assistant. The code targets MudBlazor 9 on .NET 10 but hasn't been compiled or run yet."
 ---
 

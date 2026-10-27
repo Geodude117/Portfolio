@@ -3,6 +3,7 @@ title: "Implementing the repository pattern in .NET 10"
 description: A practical guide to the repository pattern in .NET 10 with EF Core — what it is, when it's worth it, a specific repository with a unit of work, wiring it into dependency injection and a minimal API, testing it with a fake and a real database, and the common mistakes to avoid.
 pubDate: 2026-10-26T23:50:00Z
 tags: [C#, .NET 10, EF Core, Repository Pattern, Architecture]
+guide: true
 ai: "Made with AI: this guide, its sample code and diagram were produced with Claude, an AI assistant. The code targets .NET 10 and EF Core 10 but hasn't been compiled or run yet."
 ---
 

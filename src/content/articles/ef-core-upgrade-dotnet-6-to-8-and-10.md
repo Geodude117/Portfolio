@@ -3,6 +3,7 @@ title: "Upgrading EF Core from .NET 6 to .NET 8 and 10: the breaking changes tha
 description: The Entity Framework Core problems you're most likely to hit moving an enterprise app off .NET 6 — the "certificate chain was issued by an authority that is not trusted" error and how to fix it properly, tables with triggers, Contains and SQL Server compatibility levels, stricter migrations, and what changes again in EF Core 10.
 pubDate: 2026-10-26T22:20:00Z
 tags: [C#, .NET, EF Core, SQL Server, Upgrades]
+guide: true
 ai: "Made with AI: this article and its diagrams were produced with Claude, an AI assistant, from Microsoft's EF Core breaking-change documentation."
 ---
 

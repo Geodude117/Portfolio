@@ -3,6 +3,7 @@ title: "Fixing EF Core's \"A second operation was started on this context instan
 description: A practical guide to EF Core's most common lifetime bug — what the "second operation was started on this context instance before a previous operation completed" error means, the six usual causes (missing awaits, Task.WhenAll, singletons, background services, Blazor Server, open readers), and how to fix and prevent each one in .NET 8 and 10.
 pubDate: 2026-10-27T08:30:00Z
 tags: [C#, .NET 10, EF Core, Dependency Injection, Debugging]
+guide: true
 ai: "Made with AI: this guide, its sample code and diagram were produced with Claude, an AI assistant. The code targets .NET 8/10 with EF Core but hasn't been compiled or run yet."
 ---
 
