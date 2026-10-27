@@ -2,7 +2,7 @@
 title: "Connecting to the UK PlayHQ API with C# and .NET 10"
 description: A practical C# guide to PlayHQ's public APIs from the UK — the EU base URL, the x-api-key and x-phq-tenant headers, a typed HttpClient, cursor paging with IAsyncEnumerable, walking organisation → seasons → grades → games, handling 400/401/403, caching, testing and the gotchas in the data.
 pubDate: 2026-10-26T23:30:00Z
-tags: [C#, .NET 10, PlayHQ, REST API, HttpClient]
+tags: [C#, .NET 10, Basketball, PlayHQ, REST API, HttpClient]
 ai: "Made with AI: this guide, its sample code and diagram were produced with Claude, an AI assistant, from PlayHQ's public support articles. The code hasn't been compiled or run against the live API yet, and a few details (the UK tenant name and the name of the response's list property) need confirming with PlayHQ before you rely on them."
 ---
 
