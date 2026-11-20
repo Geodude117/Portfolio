@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Rebuild every morning so the bin collections article has fresh data
+  schedule:
+    - cron: '17 4 * * *'
 
 permissions:
   contents: read
@@ -29,6 +32,11 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Fetch bin collections
+        env:
+          HULL_UPRN: ${{ secrets.HULL_UPRN }}
+        run: node scripts/fetch-bins.mjs
 
       - name: Build site
         run: npm run build
