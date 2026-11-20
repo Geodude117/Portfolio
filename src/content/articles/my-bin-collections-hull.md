@@ -10,8 +10,6 @@ ai: "Made with AI: this page, its fetch script, the GitHub Actions change and th
 <p class="bins-loading">Loading the next collection…</p>
 </div>
 
-<noscript><p>This checker needs JavaScript. You can check collection days on <a href="https://www.hull.gov.uk/bins-and-recycling/bin-collections/bin-collection-day-checker">Hull City Council's bin checker</a>.</p></noscript>
-
 <style>
 .bins { margin: 1.5rem 0 2rem; }
 .bins-next { border: 1px solid var(--border); border-radius: var(--radius, 12px); background: var(--surface); padding: 1.25rem 1.4rem; }
